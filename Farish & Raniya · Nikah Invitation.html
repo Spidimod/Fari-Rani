@@ -1,0 +1,2137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Farish & Raniya · Nikah Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f6f0e1;
+  --gold:#c9a24b;
+  --ink:#f6f0e1
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#4b5632}
+body{
+  color:var(--ink);
+  font-family:'Cormorant Garamond',serif;
+  overflow-x:hidden;
+  padding-top:env(safe-area-inset-top,0px)
+}
+section{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:12vh 6vw
+}
+h2,h3{font-weight:400;letter-spacing:.04em}
+.ch,.gold{
+  background:linear-gradient(100deg,#b08a35,#f5e4a8 45%,#b08a35);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent
+}
+.ch{display:inline-block;white-space:pre}
+.fl,.orb{
+  position:absolute;
+  width:min(34vw,220px);
+  aspect-ratio:1;
+  height:auto;
+  color:var(--gold);
+  pointer-events:none
+}
+.btn{
+  margin-top:1.4rem;
+  padding:.9rem 1.8rem;
+  border:1px solid var(--gold);
+  background:#4b5632;
+  color:#f5e4a8;
+  font:600 .9rem 'Cormorant Garamond',serif;
+  letter-spacing:.3em;
+  cursor:pointer
+}
+#fx{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:5
+}
+#bar{
+  position:fixed;
+  top:0;
+  left:0;
+  height:3px;
+  width:100%;
+  transform-origin:0 50%;
+  transform:scaleX(0);
+  background:linear-gradient(90deg,#b08a35,#f5e4a8);
+  z-index:50
+}
+#dots{
+  position:fixed;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:40;
+  display:flex;
+  flex-direction:column;
+  gap:12px
+}
+#dots button{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  border:1px solid var(--gold);
+  background:transparent;
+  cursor:pointer;
+  transition:.3s
+}
+#dots button.on{
+  background:var(--gold);
+  transform:scale(1.5)
+}
+#snd{
+  position:fixed;
+  left:14px;
+  bottom:calc(14px + env(safe-area-inset-bottom,0px));
+  z-index:60;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid var(--gold);
+  background:#0b130fcc;
+  color:#f5e4a8;
+  font-size:1.2rem;
+  cursor:pointer
+}
+.geo{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  opacity:.14;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='-40 -40 80 80' fill='none' stroke='%23c9a24b'%3E%3Cpath d='M-20-20h40v40h-40zM0-28.3L28.3 0 0 28.3-28.3 0z'/%3E%3Ccircle r='6'/%3E%3C/svg%3E")
+}
+.ar{
+  font:700 clamp(2rem,9vw,5rem)/1.4 Amiri,serif;
+  color:#f5e4a8;
+  text-shadow:0 0 30px #f5d77a99
+}
+
+/* ===== NEW CINEMATIC LACARD ENTRANCE ===== */
+#intro{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:#0a0f0b;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  perspective:1400px;
+}
+
+.ambient{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse at 50% 40%, #2a4a32 0%, #12241a 45%, #050a07 100%);
+  z-index:0;
+}
+
+.ambient-stars{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+}
+
+.behind-mandala{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:180vmin;
+  height:180vmin;
+  margin:-90vmin 0 0 -90vmin;
+  color:#c9a24b;
+  opacity:.08;
+  animation:slowSpin 90s linear infinite;
+  z-index:1;
+}
+@keyframes slowSpin{to{transform:rotate(360deg)}}
+
+.rays-bg{
+  position:absolute;
+  inset:-20%;
+  background:repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg 10deg, rgba(245,228,168,.04) 10deg 11deg);
+  -webkit-mask-image:radial-gradient(circle at 50% 50%, #000 0%, transparent 50%);
+  mask-image:radial-gradient(circle at 50% 50%, #000 0%, transparent 50%);
+  animation:slowSpin 140s linear infinite reverse;
+  z-index:1;
+  pointer-events:none;
+}
+
+.card-stage{
+  position:relative;
+  width:min(88vw,440px);
+  aspect-ratio:2/3;
+  z-index:10;
+  perspective:1600px;
+  transform-style:preserve-3d;
+}
+
+.envelope{
+  position:absolute;
+  inset:0;
+  border-radius:14px;
+  background:linear-gradient(160deg,#2a3a1e,#1a2812);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.7),
+    0 0 0 1px rgba(201,162,75,.3),
+    inset 0 0 100px rgba(0,0,0,.4);
+  z-index:1;
+}
+
+.envelope::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 30px, rgba(201,162,75,.05) 30px 31px),
+    repeating-linear-gradient(-45deg, transparent 0 30px, rgba(201,162,75,.05) 30px 31px);
+  border-radius:14px;
+  opacity:.6;
+}
+
+.wax-seal{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:110px;
+  height:110px;
+  margin:-55px 0 0 -55px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 30%, #f9ecb8 0%, #d4a851 30%, #b08a35 60%, #6b4d10 100%);
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.6),
+    0 0 40px rgba(245,215,122,.3),
+    inset -8px -8px 20px rgba(0,0,0,.3),
+    inset 6px 6px 15px rgba(255,255,255,.2);
+  z-index:20;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:transform .35s ease;
+}
+.wax-seal:hover{
+  transform:scale(1.08);
+}
+.wax-seal::before{
+  content:'';
+  position:absolute;
+  inset:8px;
+  border-radius:50%;
+  border:2px dashed rgba(58,42,8,.5);
+}
+.wax-seal::after{
+  content:'';
+  position:absolute;
+  inset:-4px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(245,215,122,.4) 0%, transparent 70%);
+  animation:sealGlow 2s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes sealGlow{
+  0%,100%{opacity:.4;transform:scale(1)}
+  50%{opacity:.9;transform:scale(1.15)}
+}
+.wax-seal-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color:#3a2a08;
+  font:700 .68rem 'Cormorant Garamond',serif;
+  letter-spacing:.35em;
+  text-shadow:0 1px 0 rgba(255,255,255,.3);
+  z-index:1;
+}
+.wax-seal-inner svg{
+  margin-bottom:2px;
+}
+
+.lacard{
+  position:absolute;
+  inset:0;
+  border-radius:14px;
+  background:
+    linear-gradient(180deg, #1a2812 0%, #0d1a09 100%);
+  box-shadow:
+    0 0 0 2px #c9a24b,
+    0 0 0 6px rgba(201,162,75,.2),
+    0 20px 60px rgba(0,0,0,.6),
+    inset 0 0 120px rgba(0,0,0,.5);
+  transform-origin:center bottom;
+  transform-style:preserve-3d;
+  z-index:15;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.lacard::before{
+  content:'';
+  position:absolute;
+  inset:14px;
+  border:1px solid rgba(201,162,75,.5);
+  border-radius:8px;
+  pointer-events:none;
+}
+.lacard::after{
+  content:'';
+  position:absolute;
+  inset:22px;
+  border:1px dashed rgba(201,162,75,.25);
+  border-radius:6px;
+  pointer-events:none;
+}
+
+.lacard-corners{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:2;
+}
+.lacard-corners svg{
+  position:absolute;
+  width:min(15vw,60px);
+  height:auto;
+  color:#c9a24b;
+  opacity:.8;
+}
+.lacard-corners .lc1{top:14px;left:14px}
+.lacard-corners .lc2{top:14px;right:14px;transform:scaleX(-1)}
+.lacard-corners .lc3{bottom:14px;left:14px;transform:scaleY(-1)}
+.lacard-corners .lc4{bottom:14px;right:14px;transform:scale(-1)}
+
+.card-content{
+  position:relative;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:0 12%;
+  gap:.5rem;
+  width:100%;
+}
+
+.card-arch{
+  position:absolute;
+  top:6%;
+  left:50%;
+  width:min(60%,200px);
+  height:auto;
+  transform:translateX(-50%);
+  color:#c9a24b;
+  opacity:.35;
+  z-index:1;
+  pointer-events:none;
+}
+
+.bismillah-card{
+  font:700 clamp(1.3rem,4.5vw,1.7rem)/1.4 Amiri,serif;
+  color:#f5e4a8;
+  text-shadow:0 0 20px #f5d77a99;
+  margin-bottom:.2rem;
+}
+
+.tag-card{
+  font-size:.62rem;
+  letter-spacing:.5em;
+  color:#c9a24b;
+  text-transform:uppercase;
+  margin-bottom:.4rem;
+  padding-left:.5em;
+}
+
+.name-card{
+  font-size:clamp(1.8rem,7.5vw,2.9rem);
+  font-weight:600;
+  line-height:1.05;
+  letter-spacing:.02em;
+  background:linear-gradient(100deg,#b08a35 0%,#f5e4a8 45%,#b08a35 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 2px 10px rgba(245,215,122,.4));
+}
+
+.amp-card{
+  font-style:italic;
+  font-size:clamp(1.3rem,4vw,1.8rem);
+  color:#c9a24b;
+  margin:.1rem 0;
+  display:flex;
+  align-items:center;
+  gap:.8em;
+}
+.amp-card::before,.amp-card::after{
+  content:"";
+  display:block;
+  width:40px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#c9a24b,transparent);
+}
+
+.date-card{
+  font-size:clamp(.78rem,2.8vw,1rem);
+  letter-spacing:.35em;
+  color:#f6f0e1;
+  margin-top:.5rem;
+  padding-left:.35em;
+}
+
+.divider{
+  width:60%;
+  height:1px;
+  margin:.6rem 0;
+  background:linear-gradient(90deg,transparent,#c9a24b,transparent);
+}
+
+.hint-card{
+  font-style:italic;
+  font-size:.72rem;
+  color:#c9a24b;
+  opacity:.7;
+  letter-spacing:.1em;
+  margin-top:.4rem;
+}
+
+.flap{
+  position:absolute;
+  inset:0;
+  border-radius:14px;
+  background:linear-gradient(180deg,#2a3a1e 0%,#1a2812 100%);
+  clip-path:polygon(0 0, 100% 0, 50% 45%);
+  transform-origin:top center;
+  z-index:18;
+  pointer-events:none;
+  backface-visibility:hidden;
+}
+.flap::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.3) 100%);
+  clip-path:polygon(0 0, 100% 0, 50% 45%);
+}
+
+.flash{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(#fff6c8,#f5d77a);
+  opacity:0;
+  z-index:120;
+  pointer-events:none;
+}
+
+/* ===== NAMES SECTION ===== */
+#names{flex-direction:column;text-align:center;gap:1vh}
+#names .bg,#story .bg{
+  position:absolute;
+  inset:-10%;
+  background:radial-gradient(circle at 30% 40%,#8da079,transparent 50%),
+             radial-gradient(circle at 75% 65%,#6d7d4f,transparent 55%),
+             #3d472a
+}
+.nm{
+  font-size:clamp(2.6rem,11vw,8rem);
+  line-height:.95;
+  position:relative;
+  z-index:2;
+  font-weight:600
+}
+.amp{
+  font-style:italic;
+  font-size:clamp(2rem,6vw,4rem);
+  color:var(--gold);
+  position:relative;
+  z-index:2
+}
+.ring{
+  position:absolute;
+  width:min(92vw,900px);
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:1
+}
+.sub{
+  position:relative;
+  z-index:2;
+  letter-spacing:.35em;
+  font-size:.8rem;
+  margin-top:1.5rem;
+  color:#f6f0e1
+}
+
+#story{text-align:center}
+.st{
+  position:absolute;
+  left:6vw;
+  right:6vw;
+  font-size:clamp(2rem,8vw,5rem);
+  font-style:italic;
+  line-height:1.1;
+  z-index:2
+}
+
+#masjid{padding:0}
+.sk{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(#0b130f,#1f3326 40%,#4b5632 80%,#9caf88);
+  background-size:100% 300%
+}
+.lts{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:0;
+  z-index:3
+}
+.lt{
+  position:absolute;
+  top:0;
+  width:34px;
+  transform-origin:50% 0;
+  animation:sw 3s ease-in-out infinite alternate
+}
+.lt i{display:block;width:1px;background:#c9a24b;margin:0 auto}
+.lt b{
+  display:block;
+  width:30px;
+  height:46px;
+  margin:0 auto;
+  border-radius:15px 15px 4px 4px;
+  background:radial-gradient(#fff3b0,#e0a93a 60%,#8a6a1c);
+  box-shadow:0 0 28px #f5d77a
+}
+@keyframes sw{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
+.mt{
+  position:relative;
+  z-index:4;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  align-items:center;
+  padding:0 5vw;
+  color:#f6f0e1
+}
+.m1,.m3{font-style:italic;font-size:clamp(1.2rem,4vw,1.8rem);color:#f6f0e1}
+.m2{font-size:clamp(2rem,8vw,4.5rem);font-weight:600;line-height:1.05;color:#f5e4a8;text-shadow:0 0 20px rgba(245,215,122,.4)}
+
+#cd{flex-direction:column;gap:2rem}
+#cd h2{font-size:clamp(1.8rem,6vw,3rem);position:relative;z-index:2;text-align:center;color:#2f3a1e}
+.cds{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:min(2.5vw,18px);
+  width:min(760px,100%);
+  perspective:900px;
+  position:relative;
+  z-index:2
+}
+.gl{
+  background:rgba(255,255,255,.45);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid #c9a24b;
+  border-radius:18px;
+  padding:1.4rem .3rem;
+  text-align:center;
+  box-shadow:inset 0 1px 0 #fff9,0 12px 30px #3a4a2644
+}
+.gl i{
+  display:block;
+  font-style:normal;
+  font-size:clamp(2rem,9vw,4.2rem);
+  font-weight:600;
+  color:#4b3a0a;
+  line-height:1
+}
+.gl small{letter-spacing:.2em;font-size:.7rem;color:#4b3a0a}
+#cd > p{position:relative;z-index:2;color:#2f3a1e;font-size:clamp(1rem,3.5vw,1.4rem)}
+
+#marq{
+  min-height:55vh;
+  flex-direction:column;
+  gap:1rem;
+  padding:0;
+  align-items:flex-start
+}
+.mq{
+  font-size:clamp(3.2rem,15vw,11rem);
+  white-space:nowrap;
+  font-weight:600;
+  line-height:1
+}
+.mq2{
+  font-size:clamp(1.2rem,4vw,2rem);
+  white-space:nowrap;
+  font-style:italic;
+  color:#6b5319
+}
+
+#rev .cr{
+  position:absolute;
+  inset:0;
+  background:var(--cream);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:.6rem;
+  color:#4b5632;
+  font-size:clamp(1.1rem,4vw,1.8rem);
+  clip-path:circle(0% at 50% 50%);
+  text-align:center
+}
+#rev .cr .fl{left:50%;top:50%;max-width:none}
+.dt{
+  font-size:clamp(7rem,35vw,16rem);
+  line-height:.9;
+  font-weight:600;
+  position:relative
+}
+.rs{color:#4b5632}
+
+.arch{
+  width:100%;
+  aspect-ratio:3/4.3;
+  border-radius:999px 999px 14px 14px;
+  border:3px solid var(--gold);
+  padding:8px;
+  position:relative;
+  box-shadow:0 0 0 6px #f6f0e1,0 0 0 7px var(--gold)
+}
+.arch .m{
+  position:absolute;
+  inset:8px;
+  border-radius:999px 999px 8px 8px;
+  overflow:hidden
+}
+.ph{
+  position:absolute;
+  inset:-14% 0;
+  background:radial-gradient(circle at 50% 30%,#d9e0c7,#8da079 60%,#5a6840);
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:7rem;
+  color:#f6f0e1aa
+}
+#cpl{padding:6vh 3vw}
+#cpl .row{
+  display:flex;
+  gap:4vw;
+  justify-content:center;
+  align-items:flex-start;
+  width:100%;
+  position:relative;
+  z-index:2
+}
+#cpl .pa{flex:none;text-align:center;width:min(40vw,300px)}
+#cpl h3{font-size:clamp(1.1rem,5vw,2.3rem);margin-top:1rem}
+#cpl p{font-size:clamp(.9rem,3vw,1.15rem);color:#3a4526}
+#cpl .th{
+  position:absolute;
+  left:0;
+  top:34%;
+  width:100%;
+  height:90px;
+  z-index:1
+}
+#cpl .mid{
+  position:absolute;
+  left:50%;
+  top:30%;
+  width:84px;
+  height:84px;
+  margin:-42px 0 0 -42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:3;
+  background:var(--cream);
+  border-radius:50%
+}
+.mid svg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  color:var(--gold)
+}
+.mid span{
+  font-size:2.2rem;
+  font-style:italic;
+  color:#8a6a1c;
+  position:relative
+}
+.orb{width:70px;opacity:.7;z-index:0}
+
+#map{padding:0}
+#map .vp{
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle,#f1e7cf,#d5c39f)
+}
+#map svg{width:100%;height:100%}
+.cap{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:9vh;
+  text-align:center;
+  font-size:clamp(1.4rem,5vw,2.4rem);
+  opacity:0;
+  z-index:3;
+  padding:0 6vw;
+  font-style:italic;
+  color:#2f3a1e;
+  text-shadow:0 0 12px #f6f0e1
+}
+.cap a{
+  display:inline-block;
+  margin-top:1rem;
+  font:600 .9rem 'Cormorant Garamond',serif;
+  letter-spacing:.2em;
+  padding:.8rem 1.4rem;
+  background:#4b5632;
+  color:#f5e4a8;
+  text-decoration:none;
+  font-style:normal;
+  text-shadow:none
+}
+.pulse{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:pl 1.8s ease-out infinite
+}
+@keyframes pl{
+  from{transform:scale(.4);opacity:1}
+  to{transform:scale(2.6);opacity:0}
+}
+
+#end{
+  flex-direction:column;
+  text-align:center;
+  min-height:130vh;
+  background:radial-gradient(ellipse at 50% 70%,#6f7f50,#2f3820 75%)
+}
+#end h2{font-size:clamp(2rem,7vw,4rem);position:relative;z-index:2;margin-top:1rem;line-height:1.1}
+#end p{
+  font-size:clamp(1.3rem,4vw,2rem);
+  font-style:italic;
+  position:relative;
+  z-index:2;
+  max-width:20em;
+  color:#f6f0e1
+}
+#end .fade{
+  position:absolute;
+  inset:0;
+  background:var(--cream);
+  opacity:0;
+  z-index:4;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#4b5632;
+  font-size:1.6rem;
+  font-style:italic
+}
+.flare{
+  position:absolute;
+  left:calc(50% - 30vmin);
+  bottom:calc(30% - 30vmin);
+  width:60vmin;
+  height:60vmin;
+  background:radial-gradient(circle,#fff3b0aa,transparent 60%);
+  animation:fp 3s ease-in-out infinite alternate;
+  z-index:1
+}
+@keyframes fp{
+  from{opacity:.4;transform:scale(.9)}
+  to{opacity:1;transform:scale(1.2)}
+}
+.rays{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:140vmax;
+  height:140vmax;
+  margin:-70vmax 0 0 -70vmax;
+  background:repeating-conic-gradient(#f5e4a826 0 5deg,transparent 5deg 15deg);
+  -webkit-mask-image:radial-gradient(circle,#000 0,transparent 38%);
+  mask-image:radial-gradient(circle,#000 0,transparent 38%);
+  animation:spin 80s linear infinite;
+  pointer-events:none;
+  z-index:1
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.leak{
+  position:fixed;
+  width:70vmax;
+  height:70vmax;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:6
+}
+.leak.a{
+  left:-35vmax;
+  top:-35vmax;
+  background:radial-gradient(circle,#f5d77a55,transparent 65%)
+}
+.leak.b2{
+  right:-35vmax;
+  bottom:-35vmax;
+  background:radial-gradient(circle,#ffd9a044,transparent 65%)
+}
+.sweep{
+  position:fixed;
+  top:-20%;
+  bottom:-20%;
+  left:0;
+  width:60%;
+  background:linear-gradient(90deg,transparent,#fff6c877,transparent);
+  z-index:7;
+  opacity:0;
+  pointer-events:none
+}
+.vig{
+  position:fixed;
+  inset:0;
+  z-index:6;
+  pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.35))
+}
+.grain{
+  position:fixed;
+  inset:-50%;
+  z-index:6;
+  pointer-events:none;
+  opacity:.08;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:gr .6s steps(4) infinite
+}
+@keyframes gr{
+  0%{transform:translate(0,0)}
+  25%{transform:translate(-5%,3%)}
+  50%{transform:translate(4%,-4%)}
+  75%{transform:translate(-3%,-5%)}
+  100%{transform:translate(5%,4%)}
+}
+@media(max-width:800px){
+  .grain{display:none}
+}
+#n1,#n2,.dt,.m2{filter:drop-shadow(0 0 14px rgba(245,215,122,.45))}
+.cld{
+  position:absolute;
+  left:-20%;
+  width:140%;
+  height:40%;
+  bottom:18%;
+  background:radial-gradient(ellipse at 30% 60%,rgba(255,255,255,.2),transparent 50%),
+             radial-gradient(ellipse at 75% 50%,rgba(255,255,255,.15),transparent 45%);
+  animation:cdr 25s linear infinite alternate;
+  z-index:2
+}
+@keyframes cdr{to{transform:translateX(12%)}}
+.nm{
+  font-size:clamp(2.6rem,13vw,7.5rem);
+  letter-spacing:.08em;
+  text-align:center;
+  line-height:1
+}
+.ln{display:block;text-align:center}
+.amp{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:.4rem 0
+}
+.amp::before,.amp::after{
+  content:"";
+  display:block;
+  width:14vw;
+  max-width:140px;
+  height:1px;
+  background:var(--gold);
+  margin:0 .6em
+}
+.m2,.i3{text-wrap:balance}
+.nm .ch,.i3 .ch{
+  background:linear-gradient(100deg,#b08a35 0,#f5e4a8 25%,#b08a35 50%,#f5e4a8 75%,#b08a35 100%);
+  background-size:200% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:foil 4s linear infinite
+}
+@keyframes foil{
+  to{background-position:-200% 0}
+}
+.beams{
+  position:fixed;
+  inset:0 -5%;
+  z-index:6;
+  pointer-events:none;
+  background:repeating-linear-gradient(105deg,transparent 0 12%,rgba(255,244,190,.1) 14%,transparent 18% 30%);
+  -webkit-mask-image:linear-gradient(#000,transparent 70%);
+  mask-image:linear-gradient(#000,transparent 70%);
+  animation:bm 9s ease-in-out infinite alternate
+}
+@keyframes bm{
+  from{opacity:.4;transform:translateX(-4%)}
+  to{opacity:1;transform:translateX(4%)}
+}
+.mist{
+  position:fixed;
+  left:-30%;
+  width:160%;
+  height:45vh;
+  pointer-events:none;
+  z-index:6;
+  background:radial-gradient(ellipse at 20% 50%,rgba(255,255,255,.22),transparent 45%),
+             radial-gradient(ellipse at 60% 40%,rgba(255,255,255,.18),transparent 50%),
+             radial-gradient(ellipse at 90% 60%,rgba(255,255,255,.2),transparent 40%)
+}
+.mst1{bottom:-12vh}
+.mst2{top:-14vh}
+.halo{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:70vmin;
+  height:70vmin;
+  margin:-35vmin 0 0 -35vmin;
+  border-radius:50%;
+  border:1px solid #f5e4a888;
+  box-shadow:0 0 80px #f5d77a55,inset 0 0 80px #f5d77a33;
+  animation:hl 4s ease-in-out infinite alternate;
+  z-index:1;
+  pointer-events:none
+}
+@keyframes hl{
+  to{transform:scale(1.15);opacity:.5}
+}
+#chap{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:calc(20px + env(safe-area-inset-bottom,0px));
+  text-align:center;
+  z-index:45;
+  color:#f5e4a8;
+  letter-spacing:.4em;
+  font-size:.7rem;
+  text-transform:uppercase;
+  text-shadow:0 1px 8px #000a;
+  pointer-events:none;
+  opacity:0
+}
+.moon{position:absolute;width:90px;left:10vw;top:58vh;z-index:2}
+.sky2{position:absolute;left:0;bottom:0;width:100%;height:34vh;fill:#0b130f;z-index:2}
+.sts{position:absolute;inset:0;width:100%;height:100%}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="flw" viewBox="-50 -50 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="1.4">
+        <g id="pt">
+          <ellipse cx="0" cy="-26" rx="9" ry="22" fill="currentColor" fill-opacity=".14"/>
+        </g>
+        <use href="#pt" transform="rotate(45)"/>
+        <use href="#pt" transform="rotate(90)"/>
+        <use href="#pt" transform="rotate(135)"/>
+        <use href="#pt" transform="rotate(180)"/>
+        <use href="#pt" transform="rotate(225)"/>
+        <use href="#pt" transform="rotate(270)"/>
+        <use href="#pt" transform="rotate(315)"/>
+        <g stroke-width="1" transform="scale(.62) rotate(22.5)">
+          <use href="#pt"/>
+          <use href="#pt" transform="rotate(45)"/>
+          <use href="#pt" transform="rotate(90)"/>
+          <use href="#pt" transform="rotate(135)"/>
+          <use href="#pt" transform="rotate(180)"/>
+          <use href="#pt" transform="rotate(225)"/>
+          <use href="#pt" transform="rotate(270)"/>
+          <use href="#pt" transform="rotate(315)"/>
+        </g>
+        <circle r="7" fill="currentColor" fill-opacity=".5"/>
+        <circle r="3" fill="currentColor"/>
+      </g>
+    </symbol>
+    <symbol id="star" viewBox="-50 -50 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M-30-30h60v60h-60zM0-42.4L42.4 0 0 42.4-42.4 0z"/>
+        <path d="M-18-18h36v36h-36z" transform="rotate(45)"/>
+        <circle r="8"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="bar"></div>
+<canvas id="fx"></canvas>
+<div class="leak a"></div>
+<div class="leak b2"></div>
+<div class="sweep"></div>
+<div class="beams"></div>
+<div class="mist mst1"></div>
+<div class="mist mst2"></div>
+<div class="vig"></div>
+<div class="grain"></div>
+<nav id="dots"></nav>
+
+<!-- ===== NEW CINEMATIC LACARD ENTRANCE ===== -->
+<div id="intro">
+  <div class="ambient"></div>
+  <svg class="ambient-stars" id="istars"></svg>
+
+  <svg class="behind-mandala" viewBox="-50 -50 100 100" fill="none" stroke="currentColor" stroke-width=".3">
+    <use href="#flw"/>
+    <circle r="42"/>
+    <circle r="30" stroke-dasharray="2 3"/>
+    <circle r="18" stroke-dasharray="1 2"/>
+  </svg>
+
+  <div class="rays-bg"></div>
+
+  <div class="card-stage" id="stage">
+
+    <div class="envelope"></div>
+    <div class="flap" id="flap"></div>
+
+    <div class="lacard" id="lacard">
+      <svg class="card-arch" viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M10 100V50Q10 10 100 10Q190 10 190 50V100"/>
+        <path d="M22 100V52Q22 22 100 22Q178 22 178 52V100" opacity=".5"/>
+      </svg>
+
+      <div class="lacard-corners">
+        <svg class="lc1" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2 2H60M2 2V60M10 10H42M10 10V42"/>
+          <circle cx="10" cy="10" r="2.5" fill="currentColor"/>
+        </svg>
+        <svg class="lc2" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2 2H60M2 2V60M10 10H42M10 10V42"/>
+          <circle cx="10" cy="10" r="2.5" fill="currentColor"/>
+        </svg>
+        <svg class="lc3" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2 2H60M2 2V60M10 10H42M10 10V42"/>
+          <circle cx="10" cy="10" r="2.5" fill="currentColor"/>
+        </svg>
+        <svg class="lc4" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2 2H60M2 2V60M10 10H42M10 10V42"/>
+          <circle cx="10" cy="10" r="2.5" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <div class="card-content">
+        <div class="bismillah-card">بِسْمِ ٱللَّٰهِ</div>
+        <div class="tag-card">Nikah Invitation</div>
+        <div class="name-card">Farish</div>
+        <div class="amp-card">&amp;</div>
+        <div class="name-card">Raniya</div>
+        <div class="divider"></div>
+        <div class="date-card">26 · 11 · 2026</div>
+        <div class="hint-card">Tap the wax seal</div>
+      </div>
+    </div>
+
+    <div class="wax-seal" id="open" role="button" aria-label="Open invitation">
+      <div class="wax-seal-inner">
+        <svg viewBox="-50 -50 100 100" width="28" height="28"><use href="#star"/></svg>
+        <span>OPEN</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="flash" id="fl2"></div>
+<button id="snd" title="Music">♪</button>
+<div id="chap"></div>
+
+<main>
+
+<section id="names" data-name="Names" data-bg="#3d472a" data-ink="#f6f0e1">
+  <div class="bg"></div>
+  <svg class="ring" viewBox="0 0 800 500" fill="none" stroke="#c9a24b" stroke-width="1.5">
+    <ellipse class="dr" cx="400" cy="250" rx="385" ry="235"/>
+    <ellipse class="dr" cx="400" cy="250" rx="370" ry="220" stroke-width=".7"/>
+  </svg>
+  <svg class="fl mand" style="width:min(95vw,720px);left:50%;top:50%;opacity:.16"><use href="#flw"/></svg>
+  <div class="nm" id="n1">
+    <div class="ln">MOHAMED</div>
+    <div class="ln">FARISH</div>
+  </div>
+  <div class="amp">&amp;</div>
+  <div class="nm" id="n2">
+    <div class="ln">RANIYA</div>
+    <div class="ln">SAFRIN</div>
+  </div>
+  <div class="sub">TOGETHER WITH THEIR FAMILIES</div>
+</section>
+
+<section id="story" data-name="Story" data-bg="#4b5632" data-ink="#f6f0e1">
+  <div class="bg"></div>
+  <svg class="fl bl" style="left:-6vw;top:8vh"><use href="#flw"/></svg>
+  <svg class="fl bl" style="right:-6vw;bottom:8vh"><use href="#flw"/></svg>
+  <div class="st gold">Two Souls,</div>
+  <div class="st gold">One Beautiful Journey,</div>
+  <div class="st gold">United Through Allah's Blessings.</div>
+</section>
+
+<section id="masjid" data-name="Bismillah" data-bg="#14201a" data-ink="#f5e4a8">
+  <div class="sk"></div>
+  <svg class="sts" id="mstars"></svg>
+  <svg class="moon" viewBox="0 0 100 100">
+    <path d="M60 8a42 42 0 1 0 0 84a32 32 0 1 1 0-84z" fill="#f5e4a8"/>
+  </svg>
+  <div class="lts"></div>
+  <svg class="sky2" viewBox="0 0 1000 300" preserveAspectRatio="none">
+    <path d="M0 300V250H120V90l15-40 15 40V250H250V190Q250 120 340 120 Q430 120 430 190V250H560V200Q560 150 620 150Q680 150 680 200V250H830V90l15-40 15 40V250H1000V300Z"/>
+  </svg>
+  <div class="mt">
+    <div class="ar">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+    <div class="m1">With the blessings of Allah</div>
+    <div class="m2">Mohamed Farish &amp; Raniya Safrin</div>
+    <div class="m3">invite you to their Nikah</div>
+  </div>
+</section>
+
+<section id="cd" data-name="Countdown" data-bg="#9caf88" data-ink="#2f3a1e">
+  <h2>Until we say Qubool Hai</h2>
+  <div class="cds">
+    <div class="gl"><i data-u="d">0</i><small>DAYS</small></div>
+    <div class="gl"><i data-u="h">0</i><small>HOURS</small></div>
+    <div class="gl"><i data-u="m">0</i><small>MINUTES</small></div>
+    <div class="gl"><i data-u="s">0</i><small>SECONDS</small></div>
+  </div>
+  <p>Thursday, 26 November 2026 · 11:30 AM</p>
+</section>
+
+<section id="marq" data-name="Blessing" data-bg="#e4d5b8" data-ink="#3a4526">
+  <div class="mq gold">FARISH ♥ RANIYA ✦ FARISH ♥ RANIYA ✦ FARISH ♥ RANIYA</div>
+  <div class="mq2">Bismillah · Barakallahu lakuma · Bismillah · Barakallahu lakuma · Bismillah</div>
+</section>
+
+<section id="rev" data-name="Date" data-bg="#4b5632" data-ink="#3a4526">
+  <div class="cr">
+    <svg class="fl" style="width:min(90vw,620px);opacity:.25"><use href="#star"/></svg>
+    <div class="dt gold">0</div>
+    <div class="rs">November 2026 · Thursday · 11:30 AM</div>
+    <div class="rs">A.P. Mahal, Agar Bypass, Kumbakonam</div>
+  </div>
+</section>
+
+<section id="cpl" data-name="Couple" data-bg="#f6f0e1" data-ink="#3a4526">
+  <svg class="th" viewBox="0 0 400 100" preserveAspectRatio="none" fill="none" stroke="#c9a24b" stroke-width="2">
+    <path id="thr" d="M0 50C100 0 140 100 200 50S300 0 400 50" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" vector-effect="non-scaling-stroke"/>
+  </svg>
+  <div class="row">
+    <div class="pa g">
+      <div class="arch">
+        <div class="m">
+          <div class="ph" data-photo="groom">
+            <svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMax slice" style="width:100%;height:100%">
+              <path d="M15 260C15 190 55 172 100 172s85 18 85 88z" fill="#4b5632"/>
+              <path d="M100 174l-20 34 20 52 20-52z" fill="#e8d3b0"/>
+              <path d="M80 174h40v-22H80z" fill="#c98f62"/>
+              <ellipse cx="100" cy="116" rx="33" ry="40" fill="#d9a77a"/>
+              <path d="M68 108Q100 52 132 108Z" fill="#f6f0e1" stroke="#c9a24b" stroke-width="3"/>
+              <path d="M69 126Q100 196 131 126Q100 152 69 126Z" fill="#2b2b20"/>
+              <circle cx="100" cy="196" r="3" fill="#c9a24b"/>
+              <circle cx="100" cy="214" r="3" fill="#c9a24b"/>
+              <circle cx="100" cy="232" r="3" fill="#c9a24b"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <h3 class="gold">Mohamed Farish</h3>
+      <p>B.Com, CA (Dubai)</p>
+    </div>
+    <div class="mid">
+      <svg><use href="#flw"/></svg>
+      <span>&amp;</span>
+    </div>
+    <div class="pa b">
+      <div class="arch">
+        <div class="m">
+          <div class="ph" data-photo="bride">
+            <svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMax slice" style="width:100%;height:100%">
+              <path d="M12 260C12 192 52 176 100 176s88 16 88 84z" fill="#f1e3c0"/>
+              <path d="M30 214Q100 186 170 214" fill="none" stroke="#c9a24b" stroke-width="3"/>
+              <path d="M52 138Q52 52 100 52Q148 52 148 138Q150 200 100 210Q50 200 52 138Z" fill="#9caf88" stroke="#c9a24b" stroke-width="2"/>
+              <ellipse cx="100" cy="122" rx="27" ry="35" fill="#d9a77a"/>
+              <path d="M73 112Q100 84 127 112Q100 98 73 112Z" fill="#9caf88"/>
+              <use href="#flw" x="62" y="38" width="28" height="28" style="color:#c9a24b"/>
+              <use href="#flw" x="86" y="30" width="30" height="30" style="color:#f5e4a8"/>
+              <use href="#flw" x="110" y="38" width="28" height="28" style="color:#c9a24b"/>
+              <use href="#flw" x="140" y="190" width="40" height="40" style="color:#7d9068"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <h3 class="gold">Raniya Safrin</h3>
+      <p>M.Sc, Microbiology</p>
+    </div>
+  </div>
+</section>
+
+<section id="map" data-name="Journey" data-bg="#e4d5b8" data-ink="#2f3a1e">
+  <div class="vp">
+    <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+      <g id="cam">
+        <path d="M440 120L520 100L600 150L640 230L720 260L700 330L620 360L600 450L570 560L540 700L520 780L490 700L450 560L400 450L330 400L350 330L420 290L400 200Z" fill="#9caf88" fill-opacity=".55" stroke="#c9a24b" stroke-width="2" vector-effect="non-scaling-stroke"/>
+        <path id="tn" d="M500 640L560 620L600 660L610 720L580 780L550 800L530 740L490 690Z" fill="#c9a24b" fill-opacity=".25" stroke="#8a6a1c" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+        <path id="rt" d="M480 380L540 680L560 700L590 715L596 720" fill="none" stroke="#b08a35" stroke-width="3" stroke-dasharray="1" pathLength="1" vector-effect="non-scaling-stroke"/>
+        <circle class="mk" cx="480" cy="380" fill="#4b5632"/>
+        <circle class="mk" cx="540" cy="680" fill="#4b5632"/>
+        <circle class="mk" cx="560" cy="700" fill="#4b5632"/>
+        <circle class="mk" cx="590" cy="715" fill="#4b5632"/>
+        <circle class="pulse" id="ring" cx="596" cy="720" fill="#c9a24b"/>
+        <circle class="mk" cx="596" cy="720" fill="#b08a35"/>
+      </g>
+    </svg>
+  </div>
+  <div class="cap">India</div>
+  <div class="cap">Tamil Nadu</div>
+  <div class="cap">Thanjavur</div>
+  <div class="cap">Kumbakonam</div>
+  <div class="cap">Melakkaveri, Qaide Millath Nagar, Kumbakonam<br>
+    <a href="https://www.google.com/maps/search/?api=1&query=A.P.+Mahal+Agar+Bypass+Kumbakonam" target="_blank" rel="noopener">GET DIRECTIONS</a>
+  </div>
+</section>
+
+<section id="end" data-name="Finale" data-bg="#2f3820" data-ink="#f6f0e1">
+  <svg viewBox="0 0 400 520" style="width:min(80vw,380px);position:relative;z-index:2" fill="none" stroke="#c9a24b" stroke-width="2">
+    <path class="dr" d="M60 510V200Q60 40 200 40Q340 40 340 200V510"/>
+    <path class="dr" d="M85 510V210Q85 70 200 70Q315 70 315 210V510" stroke-width="1"/>
+    <g id="lights" fill="#f5e4a8"></g>
+  </svg>
+  <h2 class="gold">MOHAMED FARISH<br>&amp;<br>RANIYA SAFRIN</h2>
+  <p>Your presence and blessings are our greatest gift.</p>
+  <div class="fade">With love &amp; duas — see you on the 26th</div>
+</section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+<script>
+const PHOTOS = {groom:"", bride:""};
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const mob = innerWidth < 800;
+const NS = 'http://www.w3.org/2000/svg';
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* ===== LENIS SETUP - STOPPED DURING INTRO ===== */
+let lenis = null;
+try {
+  lenis = new Lenis({lerp:.09});
+  lenis.stop(); /* Prevents any scroll during entrance */
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t * 1000));
+  gsap.ticker.lagSmoothing(0);
+} catch(e) {}
+
+/* Lock body scroll during intro to prevent scroll jank */
+document.body.style.overflow = 'hidden';
+window.scrollTo(0, 0);
+
+function split(el) {
+  const t = el.textContent;
+  el.textContent = '';
+  return [...t].map(c => {
+    const s = document.createElement('span');
+    s.className = 'ch';
+    s.textContent = c;
+    el.appendChild(s);
+    return s;
+  });
+}
+
+function draw(q) {
+  $$(q).forEach(p => {
+    const L = p.getTotalLength ? p.getTotalLength() : 300;
+    p.style.strokeDasharray = L;
+    p.style.strokeDashoffset = L;
+  });
+}
+
+function mkStars(v, n) {
+  for (let i = 0; i < n; i++) {
+    const c = document.createElementNS(NS, 'circle');
+    c.setAttribute('cx', Math.random() * 100 + '%');
+    c.setAttribute('cy', Math.random() * 100 + '%');
+    c.setAttribute('r', Math.random() * 1.6 + .4);
+    c.setAttribute('fill', '#f5e4a8');
+    v.appendChild(c);
+  }
+}
+
+draw('.dr');
+draw('.gd');
+$$('[data-photo]').forEach(e => {
+  const u = PHOTOS[e.dataset.photo];
+  if (u) {
+    e.style.backgroundImage = `url(${u})`;
+    e.textContent = '';
+  }
+});
+
+/* ===== ENTRANCE ANIMATION (optimized - no transforms on animation loop) ===== */
+mkStars($('#istars'), 70);
+
+gsap.to('#istars circle', {
+  opacity:.15,
+  duration:1.4,
+  repeat:-1,
+  yoyo:true,
+  stagger:{each:.04, from:'random'}
+});
+
+gsap.set('#stage', {y:120, opacity:0, rotateX:-15});
+gsap.set('.wax-seal', {scale:0, opacity:0});
+gsap.set('.flap', {rotateX:0});
+
+gsap.timeline()
+  .to('#stage', {
+    y:0,
+    opacity:1,
+    rotateX:0,
+    duration:1.4,
+    ease:'power3.out'
+  })
+  .to('.wax-seal', {
+    scale:1,
+    opacity:1,
+    duration:1,
+    ease:'back.out(2)'
+  }, '-=.6')
+  .from('.card-content > *', {
+    opacity:0,
+    y:20,
+    stagger:.1,
+    duration:.8,
+    ease:'power2.out'
+  }, '-=.8');
+
+/* Gentle idle float - only Y, no rotateX so GPU load is light */
+gsap.to('#stage', {
+  y:-8,
+  duration:3,
+  repeat:-1,
+  yoyo:true,
+  ease:'sine.inOut',
+  delay:2
+});
+
+/* Wax seal glow pulse */
+gsap.to('.wax-seal', {
+  boxShadow:'0 8px 30px rgba(0,0,0,.6), 0 0 60px rgba(245,215,122,.6), inset -8px -8px 20px rgba(0,0,0,.3), inset 6px 6px 15px rgba(255,255,255,.2)',
+  duration:1.8,
+  repeat:-1,
+  yoyo:true,
+  ease:'sine.inOut'
+});
+
+/* ===== OPEN SEQUENCE ===== */
+$('#open').onclick = () => {
+  startAudio();
+
+  /* Kill the idle float so it doesn't fight the open animation */
+  gsap.killTweensOf('#stage');
+
+  const tl = gsap.timeline();
+
+  tl.to('.wax-seal', {
+    scale:1.4,
+    opacity:0,
+    duration:.5,
+    ease:'power2.in'
+  })
+  .to('.flap', {
+    rotateX:-180,
+    duration:.9,
+    ease:'power2.inOut'
+  }, '-=.2')
+  .to('#lacard', {
+    rotateX:-160,
+    y:-80,
+    scale:1.1,
+    duration:1.4,
+    ease:'power2.inOut'
+  }, '-=.3')
+  .to('.card-content', {
+    opacity:0,
+    y:-20,
+    duration:.6
+  }, '-=.9')
+  .to('#stage', {
+    scale:1.8,
+    opacity:0,
+    duration:1.1,
+    ease:'power2.in'
+  }, '-=.4')
+  .to('.ambient', {
+    background:'radial-gradient(ellipse at 50% 40%, #f5e4a8 0%, #d4a851 50%, #8a6a1c 100%)',
+    duration:1
+  }, '-=.9')
+  .to('#fl2', {opacity:1, duration:.5}, '-=.6')
+  .add(() => {
+    $('#intro').remove();
+    /* UNLOCK body scroll */
+    document.body.style.overflow = '';
+    if (lenis) lenis.start();
+    window.scrollTo(0, 0);
+    ScrollTrigger.refresh();
+  })
+  .to('#fl2', {opacity:0, duration:1.2})
+  .from('#n1 .ch', {opacity:0, x:-160, stagger:.04, duration:1.1, ease:'power3.out'}, '-=1')
+  .from('#n2 .ch', {opacity:0, x:160, stagger:.04, duration:1.1, ease:'power3.out'}, '<');
+};
+
+/* ===== AUDIO ===== */
+let ac, mg, pd = [], on = true, act = 'names';
+const HJ = [293.66, 311.13, 369.99, 392, 440, 466.16, 523.25, 587.33];
+const BASE = {
+  names:[146.83, 220, 293.66],
+  masjid:[146.83, 233.08, 293.66],
+  story:[130.81, 196, 261.63],
+  marq:[146.83, 220, 369.99],
+  rev:[155.56, 233.08, 311.13],
+  cpl:[146.83, 220, 293.66, 440],
+  cd:[146.83, 196, 293.66],
+  map:[130.81, 196, 311.13],
+  end:[146.83, 220, 293.66, 587.33]
+};
+
+function pad(id) {
+  if (!ac || !on) return;
+  const fs = BASE[id] || BASE.names, t = ac.currentTime;
+  pd.forEach(p => {
+    p.g.gain.cancelScheduledValues(t);
+    p.g.gain.setValueAtTime(p.g.gain.value, t);
+    p.g.gain.linearRampToValueAtTime(0, t + 3);
+    p.o.stop(t + 3.2);
+  });
+  pd = fs.map(f => {
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = 'triangle';
+    o.frequency.value = f;
+    o.detune.value = Math.random() * 8 - 4;
+    g.gain.value = 0;
+    g.gain.linearRampToValueAtTime(.05, t + 3);
+    o.connect(g);
+    g.connect(mg);
+    o.start();
+    return {o, g};
+  });
+}
+
+function bell() {
+  if (!ac || !on) return;
+  const t = ac.currentTime, o = ac.createOscillator(), g = ac.createGain();
+  o.frequency.value = HJ[Math.floor(Math.random() * 8)] * (Math.random() < .3 ? 2 : 1);
+  g.gain.setValueAtTime(0, t);
+  g.gain.linearRampToValueAtTime(.09, t + .02);
+  g.gain.exponentialRampToValueAtTime(.0001, t + 2.5);
+  o.connect(g);
+  g.connect(mg);
+  o.start(t);
+  o.stop(t + 2.6);
+}
+
+function startAudio() {
+  try {
+    ac = new (window.AudioContext || window.webkitAudioContext)();
+    mg = ac.createGain();
+    const lp = ac.createBiquadFilter();
+    lp.frequency.value = 1800;
+    mg.connect(lp);
+    lp.connect(ac.destination);
+    pad(act);
+    setInterval(bell, 1700);
+  } catch(e) {}
+}
+
+$('#snd').onclick = e => {
+  on = !on;
+  e.target.style.opacity = on ? 1 : .4;
+  if (ac) {
+    if (on) {
+      ac.resume();
+      pad(act);
+    } else {
+      pd.forEach(p => p.g.gain.linearRampToValueAtTime(0, ac.currentTime + .5));
+    }
+  }
+};
+
+/* ===== NAMES ===== */
+const a = $$('#n1 .ln').flatMap(l => split(l));
+const b = $$('#n2 .ln').flatMap(l => split(l));
+
+gsap.timeline({
+  scrollTrigger: {
+    trigger: '#names',
+    start: 'top top',
+    end: '+=150%',
+    pin: true,
+    scrub: 1
+  }
+})
+.to('#names .amp', {scale:1.4, duration:3}, 0)
+.to('.nm', {scale:1.12, duration:3}, 0)
+.to('#names .bg', {scale:1.35, duration:3}, 0)
+.to('#names .dr', {strokeDashoffset:0, duration:2, stagger:.3}, 0);
+
+gsap.fromTo('.mand', {
+  xPercent:-50, yPercent:-50, rotate:0, scale:.6
+}, {
+  rotate:220,
+  scale:1.3,
+  ease:'none',
+  scrollTrigger: {
+    trigger:'#names',
+    start:'top top',
+    end:'+=150%',
+    scrub:1
+  }
+});
+
+/* ===== STORY ===== */
+const sl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#story',
+    start: 'top top',
+    end: '+=300%',
+    pin: true,
+    scrub: 1
+  }
+});
+
+sl.fromTo('#story .bg', {scale:1.6}, {scale:1, duration:6}, 0)
+  .fromTo('#story .bl', {scale:0, rotate:-120}, {scale:1, rotate:0, duration:2, stagger:.4}, 0);
+
+$$('.st').forEach((e, i) => {
+  sl.fromTo(e, {opacity:0, y:60, filter:'blur(14px)'}, {opacity:1, y:0, filter:'blur(0px)', duration:1}, i * 2);
+  if (i < 2) sl.to(e, {opacity:0, y:-60, duration:1}, i * 2 + 1.7);
+});
+
+/* ===== MASJID ===== */
+mkStars($('#mstars'), 50);
+
+[10, 30, 52, 72, 90].forEach((x, i) => {
+  const d = document.createElement('div');
+  d.className = 'lt';
+  d.style.left = x + '%';
+  d.style.animationDelay = (i * .4) + 's';
+  d.innerHTML = `<i style="height:${8 + Math.random() * 24}vh"></i><b></b>`;
+  $('.lts').appendChild(d);
+});
+
+gsap.timeline({
+  scrollTrigger: {
+    trigger: '#masjid',
+    start: 'top top',
+    end: '+=300%',
+    pin: true,
+    scrub: 1
+  }
+})
+.to('.sk', {backgroundPositionY:'100%', duration:6, ease:'none'}, 0)
+.fromTo('#masjid .sky2', {yPercent:60}, {yPercent:0, duration:2}, 0)
+.fromTo('#masjid .moon', {x:0, y:0}, {
+  x: () => innerWidth * .7,
+  y: () => -innerHeight * .4,
+  rotate: 40,
+  duration: 6,
+  ease: 'none'
+}, 0)
+.to('#mstars circle', {opacity:0, duration:2, stagger:.02}, 3)
+.fromTo('.lts .lt', {top:'-60vh'}, {top:0, stagger:.3, duration:1.5, ease:'bounce.out'}, .5)
+.from('#masjid .ar', {opacity:0, scale:.7, filter:'blur(12px)', duration:1.5}, 1)
+.from('.m1', {opacity:0, y:30, duration:1}, 2.2)
+.from('.m2', {opacity:0, y:40, duration:1}, 3)
+.from('.m3', {opacity:0, y:30, duration:1}, 4);
+
+$$('#names, #story, #cd, #end, #cpl, #marq').forEach(x => {
+  const d = document.createElement('div');
+  d.className = 'geo';
+  x.prepend(d);
+});
+
+if (!mob) {
+  gsap.to('.geo', {
+    backgroundPositionY: '-500px',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: document.body,
+      start: 0,
+      end: 'max',
+      scrub: 1
+    }
+  });
+}
+
+/* ===== COUNTDOWN ===== */
+const T = new Date('2026-11-26T11:30:00+05:30').getTime();
+const cur = {};
+
+function tick() {
+  const d = Math.max(0, T - Date.now());
+  const v = {
+    d: Math.floor(d / 864e5),
+    h: Math.floor(d / 36e5) % 24,
+    m: Math.floor(d / 6e4) % 60,
+    s: Math.floor(d / 1e3) % 60
+  };
+  for (const k in v) {
+    const el = $(`[data-u=${k}]`);
+    const x = String(v[k]).padStart(2, '0');
+    if (cur[k] === x) continue;
+    if (cur[k] === undefined) {
+      el.textContent = x;
+    } else {
+      gsap.timeline()
+        .to(el, {rotateX:-90, duration:.18, ease:'power1.in'})
+        .add(() => el.textContent = x)
+        .fromTo(el, {rotateX:90}, {rotateX:0, duration:.25, ease:'back.out(2)'});
+    }
+    cur[k] = x;
+  }
+}
+
+tick();
+setInterval(tick, 1000);
+
+gsap.from('.gl', {
+  y:80,
+  rotateX:-60,
+  opacity:0,
+  stagger:.12,
+  duration:1.1,
+  scrollTrigger: {
+    trigger:'#cd',
+    start:'top 60%'
+  }
+});
+
+/* ===== MARQUEE ===== */
+ScrollTrigger.create({
+  trigger: '#marq',
+  start: 'top bottom',
+  end: 'bottom top',
+  onUpdate: s => gsap.to('.mq, .mq2', {
+    skewX: gsap.utils.clamp(-14, 14, s.getVelocity() / -150),
+    duration: .4,
+    overwrite: 'auto'
+  })
+});
+
+gsap.fromTo('.mq', {xPercent:12}, {
+  xPercent:-62,
+  ease:'none',
+  scrollTrigger:{
+    trigger:'#marq',
+    start:'top bottom',
+    end:'bottom top',
+    scrub:1
+  }
+});
+
+gsap.fromTo('.mq2', {xPercent:-55}, {
+  xPercent:8,
+  ease:'none',
+  scrollTrigger:{
+    trigger:'#marq',
+    start:'top bottom',
+    end:'bottom top',
+    scrub:1
+  }
+});
+
+/* ===== DATE REVEAL ===== */
+const dn = {v:0};
+gsap.set('.cr .fl', {xPercent:-50, yPercent:-50});
+
+gsap.timeline({
+  scrollTrigger:{
+    trigger:'#rev',
+    start:'top top',
+    end:'+=140%',
+    pin:true,
+    scrub:1
+  }
+})
+.fromTo('.cr', {
+  clipPath:'circle(0% at 50% 50%)'
+}, {
+  clipPath:'circle(80% at 50% 50%)',
+  duration:2
+}, 0)
+.fromTo('.cr .fl', {rotate:-90, scale:.4}, {rotate:90, scale:1, duration:4}, 0)
+.to(dn, {
+  v: 26,
+  duration: 1.5,
+  onUpdate: () => $('.dt').textContent = Math.round(dn.v)
+}, 1)
+.from('.cr .rs', {opacity:0, y:30, stagger:.3, duration:.8}, 2);
+
+/* ===== COUPLE ===== */
+const gh = $('#cpl .g');
+const bh = $('#cpl .b');
+gsap.set([gh, bh], {transformPerspective:900});
+const nc = $$('#cpl h3').flatMap(h => split(h));
+
+const ct = gsap.timeline({
+  scrollTrigger:{
+    trigger:'#cpl',
+    start:'top top',
+    end:'+=260%',
+    pin:true,
+    scrub:1
+  }
+});
+
+ct.fromTo(gh, {
+  xPercent:-170,
+  rotateY: mob ? 0 : 75,
+  opacity:0
+}, {
+  xPercent:0,
+  rotateY:0,
+  opacity:1,
+  duration:2
+}, 0)
+.fromTo(bh, {
+  xPercent:170,
+  rotateY: mob ? 0 : -75,
+  opacity:0
+}, {
+  xPercent:0,
+  rotateY:0,
+  opacity:1,
+  duration:2
+}, 0)
+.fromTo('#cpl .arch .m', {
+  clipPath:'inset(100% 0 0 0)'
+}, {
+  clipPath:'inset(0% 0 0 0)',
+  duration:1.5
+}, 1)
+.fromTo('#cpl .ph', {
+  yPercent:-14,
+  scale:1.3
+}, {
+  yPercent:14,
+  scale:1,
+  duration:5
+}, 0)
+.to('#thr', {strokeDashoffset:0, duration:1.5}, 2)
+.fromTo('.mid', {
+  scale:0,
+  rotate:-200,
+  opacity:0
+}, {
+  scale:1,
+  rotate:0,
+  opacity:1,
+  duration:1.5,
+  ease:'back.out(1.7)'
+}, 3)
+.to('.mid svg', {rotate:360, duration:3}, 3)
+.from(nc, {opacity:0, y:40, stagger:.04, duration:1}, 3.2)
+.to(gh, {rotate:-5, x:'3vw', duration:1.2}, 4)
+.to(bh, {rotate:5, x:'-3vw', duration:1.2}, 4);
+
+for (let i = 0; i < 8; i++) {
+  const o = document.createElementNS(NS, 'svg');
+  o.setAttribute('class', 'orb');
+  o.innerHTML = '<use href="#flw"/>';
+  o.style.left = (5 + Math.random() * 85) + '%';
+  o.style.top = (5 + Math.random() * 85) + '%';
+  $('#cpl').appendChild(o);
+  ct.fromTo(o, {scale:0, rotate:-90}, {scale:.6 + Math.random(), rotate:120, duration:2}, 1 + i * .3);
+}
+
+$$('#cpl .arch').forEach(ar => {
+  const v = document.createElementNS(NS, 'svg');
+  v.setAttribute('viewBox', '0 0 100 143');
+  v.setAttribute('preserveAspectRatio', 'none');
+  v.setAttribute('style', 'position:absolute;inset:-3%;width:106%;height:106%;overflow:visible;pointer-events:none');
+  v.innerHTML = '<path d="M0 143V50A50 50 0 0 1 100 50V143" fill="none" stroke="#6d7d4f" stroke-width="2" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" vector-effect="non-scaling-stroke"/>';
+  ar.appendChild(v);
+  ct.to(v.firstChild, {strokeDashoffset:0, duration:2}, 1);
+
+  const pos = [];
+  for (let t = 180; t >= 0; t -= 30) pos.push([50 + 50 * Math.cos(t * Math.PI / 180), 35 - 35 * Math.sin(t * Math.PI / 180)]);
+  [55, 70, 85].forEach(y => pos.push([0, y], [100, y]));
+
+  pos.forEach(([x, y], i) => {
+    const f = document.createElementNS(NS, 'svg');
+    f.setAttribute('class', 'fl');
+    f.innerHTML = '<use href="#flw"/>';
+    f.style.cssText = `left:${x}%;top:${y}%;width:${34 + Math.random() * 26}px;color:${i % 3 ? '#c9a24b' : '#7d9068'};z-index:4`;
+    ar.appendChild(f);
+    gsap.set(f, {xPercent:-50, yPercent:-50});
+    ct.fromTo(f, {scale:0, rotate:-180}, {scale:1, rotate:i % 2 ? 90 : -90, duration:1.2, ease:'back.out(1.6)'}, 1.3 + i * .12);
+  });
+});
+
+$$('#cd, #marq, #end').forEach(sec => {
+  [[-6, -4], [86, -4], [-6, 80], [86, 80]].forEach(([x, y], i) => {
+    const o = document.createElementNS(NS, 'svg');
+    o.setAttribute('class', 'fl');
+    o.innerHTML = '<use href="#flw"/>';
+    o.style.cssText = `left:${x}%;top:${y}%;width:min(40vw,260px);opacity:.55;z-index:1;color:${i % 2 ? '#7d9068' : '#c9a24b'}`;
+    sec.appendChild(o);
+    gsap.fromTo(o, {scale:0, rotate:-140}, {
+      scale:1,
+      rotate:i % 2 ? 60 : -60,
+      ease:'none',
+      scrollTrigger:{
+        trigger:sec,
+        start:'top 85%',
+        end:'bottom 30%',
+        scrub:1
+      }
+    });
+  });
+});
+
+$$('#names, #masjid, #end').forEach(x => {
+  const r = document.createElement('div');
+  r.className = 'rays';
+  x.prepend(r);
+});
+
+gsap.set('.sweep', {skewX:-20});
+
+function sweep() {
+  gsap.fromTo('.sweep', {
+    xPercent:-130,
+    opacity:.9
+  }, {
+    xPercent:230,
+    opacity:0,
+    duration:1.4,
+    ease:'power2.inOut',
+    overwrite:true
+  });
+}
+
+gsap.to('.leak.a', {
+  y:'80vh',
+  x:'25vw',
+  ease:'none',
+  scrollTrigger:{
+    trigger:document.body,
+    start:0,
+    end:'max',
+    scrub:2
+  }
+});
+
+gsap.to('.leak.b2', {
+  y:'-70vh',
+  x:'-30vw',
+  ease:'none',
+  scrollTrigger:{
+    trigger:document.body,
+    start:0,
+    end:'max',
+    scrub:2
+  }
+});
+
+$$('#names, #end').forEach(x => {
+  const h = document.createElement('div');
+  h.className = 'halo';
+  x.prepend(h);
+});
+
+gsap.to('.mst1', {
+  xPercent:-22,
+  ease:'none',
+  scrollTrigger:{
+    trigger:document.body,
+    start:0,
+    end:'max',
+    scrub:2
+  }
+});
+
+gsap.to('.mst2', {
+  xPercent:22,
+  ease:'none',
+  scrollTrigger:{
+    trigger:document.body,
+    start:0,
+    end:'max',
+    scrub:2
+  }
+});
+
+function chap(t) {
+  gsap.timeline({overwrite:true})
+    .to('#chap', {opacity:0, y:8, duration:.25})
+    .add(() => $('#chap').textContent = t)
+    .to('#chap', {opacity:.9, y:0, duration:.6});
+}
+
+/* ===== MAP ===== */
+const cam = {x:500, y:420, s:1};
+const g = $('#cam');
+
+function app() {
+  g.setAttribute('transform', `translate(${500 - cam.x * cam.s} ${500 - cam.y * cam.s}) scale(${cam.s})`);
+  $$('.mk').forEach(m => m.setAttribute('r', 6 / cam.s));
+  $('#ring').setAttribute('r', 16 / cam.s);
+}
+
+app();
+gsap.set('#tn', {opacity:0});
+gsap.set('#rt', {strokeDashoffset:1});
+
+const caps = $$('.cap');
+const mt = gsap.timeline({
+  scrollTrigger:{
+    trigger:'#map',
+    start:'top top',
+    end:'+=500%',
+    pin:true,
+    scrub:1
+  }
+});
+
+const st = [
+  [500, 420, 1],
+  [550, 700, 3],
+  [560, 700, 8],
+  [592, 716, 16],
+  [596, 720, 38]
+];
+
+st.forEach((p, i) => {
+  mt.to(cam, {
+    x:p[0],
+    y:p[1],
+    s:p[2],
+    duration:2,
+    ease:'power2.inOut',
+    onUpdate:app
+  }, i * 3)
+  .to('#rt', {
+    strokeDashoffset:1 - i / 4,
+    duration:2,
+    ease:'none'
+  }, i * 3)
+  .to(caps[i], {opacity:1, duration:.5}, i * 3 + 1.2);
+  if (i < 4) mt.to(caps[i], {opacity:0, duration:.4}, i * 3 + 2.8);
+});
+
+mt.to('#tn', {opacity:1, duration:1}, 3).to({}, {duration:1});
+
+/* ===== FINALE ===== */
+const lg = $('#lights');
+for (let i = 0; i < 28; i++) {
+  const c = document.createElementNS(NS, 'circle');
+  const an = Math.PI + i / 27 * Math.PI;
+  c.setAttribute('cx', 200 + 140 * Math.cos(an));
+  c.setAttribute('cy', 200 + 160 * Math.sin(an));
+  c.setAttribute('r', 3);
+  lg.appendChild(c);
+}
+
+gsap.to('#lights circle', {
+  opacity:.2,
+  duration:1,
+  repeat:-1,
+  yoyo:true,
+  stagger:{each:.07, repeat:-1, yoyo:true}
+});
+
+gsap.timeline({
+  scrollTrigger:{
+    trigger:'#end',
+    start:'top 70%',
+    end:'bottom bottom',
+    scrub:1
+  }
+})
+.to('#end .dr', {strokeDashoffset:0, duration:3, stagger:.3}, 0)
+.from('#end h2', {scale:.6, opacity:0, duration:2}, 1)
+.from('#end p', {opacity:0, y:40, duration:2}, 2)
+.to('#end .fade', {opacity:1, duration:2}, 6);
+
+/* ===== SECTIONS ===== */
+$$('section[data-name]').forEach((s, i) => {
+  const bt = document.createElement('button');
+  bt.title = s.dataset.name;
+  bt.onclick = () => lenis ? lenis.scrollTo(s, {duration:1.8}) : s.scrollIntoView({behavior:'smooth'});
+  $('#dots').appendChild(bt);
+
+  ScrollTrigger.create({
+    trigger: s,
+    start: 'top 55%',
+    end: 'bottom 55%',
+    onToggle: x => {
+      if (x.isActive) {
+        act = s.id;
+        pad(act);
+        sweep();
+        chap(s.dataset.name);
+        $$('#dots button').forEach((d, j) => d.classList.toggle('on', j == i));
+        gsap.to(document.body, {backgroundColor:s.dataset.bg, color:s.dataset.ink, duration:1.2});
+        gsap.to(document.documentElement, {backgroundColor:s.dataset.bg, duration:1.2});
+      }
+    }
+  });
+});
+
+gsap.to('#bar', {
+  scaleX:1,
+  ease:'none',
+  scrollTrigger:{
+    scrub:.3,
+    start:0,
+    end:'max'
+  }
+});
+
+/* ===== PETALS ===== */
+const cv = $('#fx');
+const cx = cv.getContext('2d');
+let W, H;
+const P = [];
+const N = mob ? 12 : 28;
+const M = mob ? 16 : 36;
+
+function rs() {
+  W = cv.width = innerWidth;
+  H = cv.height = innerHeight;
+}
+
+rs();
+addEventListener('resize', rs);
+
+const mkp = k => ({
+  k,
+  x: Math.random() * W,
+  y: Math.random() * H,
+  r: k == 2 ? 20 + Math.random() * 40 : k ? 2 + Math.random() * 2 : 6 + Math.random() * 7,
+  v: k ? .15 + Math.random() * .3 : .6 + Math.random(),
+  s: Math.random() * 6,
+  a: Math.random() * 6,
+  t: Math.random() * .03
+});
+
+for (let i = 0; i < N; i++) P.push(mkp(0));
+for (let i = 0; i < M; i++) P.push(mkp(1));
+for (let i = 0; i < (mob ? 4 : 9); i++) P.push(mkp(2));
+for (let i = 0; i < (mob ? 10 : 24); i++) {
+  const p = mkp(3);
+  p.v = -(.4 + Math.random() * .8);
+  P.push(p);
+}
+
+function burst() {
+  for (let i = 0; i < 30; i++) {
+    const p = mkp(0);
+    p.y = H * .6;
+    p.x = W / 2;
+    p.vx = (Math.random() - .5) * 10;
+    p.v = -4 - Math.random() * 5;
+    p.b = 1;
+    P.push(p);
+  }
+}
+
+gsap.ticker.add(() => {
+  cx.clearRect(0, 0, W, H);
+  for (let i = P.length - 1; i >= 0; i--) {
+    const p = P[i];
+    p.s += .02;
+    p.a += p.t + .01;
+    p.y += p.v;
+    p.x += (p.vx || 0) + Math.sin(p.s) * .6;
+    if (p.b) {
+      p.v += .18;
+      p.vx *= .97;
+      if (p.y > H + 20) {
+        P.splice(i, 1);
+        continue;
+      }
+    } else if (p.y > H + 20) {
+      p.y = -20;
+      p.x = Math.random() * W;
+    } else if (p.y < -20 && p.k == 3) {
+      p.y = H + 20;
+      p.x = Math.random() * W;
+    }
+    cx.save();
+    cx.translate(p.x, p.y);
+    if (p.k) {
+      cx.globalAlpha = p.k == 2 ? .09 : .4 + .4 * Math.sin(p.s * 2);
+      cx.fillStyle = '#f5e4a8';
+      cx.beginPath();
+      cx.arc(0, 0, p.r, 0, 7);
+      cx.fill();
+    } else {
+      cx.rotate(p.a);
+      cx.globalAlpha = .75;
+      cx.fillStyle = i % 3 ? '#f4e6e0' : '#e8d3b0';
+      cx.beginPath();
+      cx.ellipse(0, 0, p.r, p.r * .55, 0, 0, 7);
+      cx.fill();
+    }
+    cx.restore();
+  }
+});
+
+addEventListener('load', () => ScrollTrigger.refresh());
+</script>
+</body>
+</html>
